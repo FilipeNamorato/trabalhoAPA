@@ -50,11 +50,7 @@ Alguns ajustes foram feitos para garantir que eles funcionassem corretamente.
 
 ## Autores
 
-- Nome 1
-- Nome 2
-- Nome 3
-- Nome 4
-
-## Licença
-
-Uso educacional. Licença MIT.
+- Deyvison Gregorio Dias
+- Filipe de Lima Namorato
+- Gustavo do Bem Ferreira
+- Vinícius Ferraz Guedes Melo
