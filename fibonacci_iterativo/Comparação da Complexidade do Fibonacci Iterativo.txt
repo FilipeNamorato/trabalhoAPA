@@ -1,0 +1,47 @@
+Sequência de Fibonacci - Iterativa
+
+Função de Complexidade:
+
+Condições iniciais: O(1)
+
+Inicialização de variáveis: O(1)
+
+Laço (n-2) iterações:
+- Soma: O(1)
+- 2 Atribuições: O(1) - cada
+Total: 3 operações constantes
+Logo, 3 x (n-2)
+
+Retorno final: O(1)
+
+T(n) = O(1) + O(1) + 3 x (n-2) + O(1) 
+T(n) = 3 x (n-2)
+T(n) = 3n - 6
+
+T(n) = O(n) - Ordem superior
+
+
+Sequência de Fibonacci - Generativa_Iterativa (chatGPT)
+
+Função de complexidade:
+
+Condições iniciais: O(1)
+
+Inicialização de variáveis: O(1)
+
+Laço (n-1) iterações:
+- Soma: O(1)
+- 2 Atribuições: O(1) - cada
+Total: 3 operações constantes
+Logo, 3 x (n-1)
+
+Retorno final: O(1)
+
+T(n) = O(1) + O(1) + 3 x (n-1) + O(1)
+T(n) = 3 x (n-1)
+T(n) = 3n - 3
+
+T(n) = O(n) - Ordem superior
+
+Na prática, ambos executam aproximadamente n operações, crescem proporcionalmente a n (forma linear) e praticamente paralelas. 
+A diferença de tempo entre (n-2) e (n-1) iterações é insignificanete. Só é perceptível utilizando valores muito elevados. Exemplo: 100000, 1000000, etc.
