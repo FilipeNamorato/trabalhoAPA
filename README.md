@@ -21,23 +21,6 @@ Ambos foram resolvidos com:
 - Plataforma: Linux (Ubuntu)
 - LLM: ChatGPT
 
-## Estrutura do projeto
-
-.
-├── fibonacci/
-│   ├── fibonacci_iterativo.cpp
-│   ├── fibonacci_recursivo.cpp
-│   ├── analise_fibonacci.txt
-├── polinomio/
-│   ├── polinomio_iterativo.cpp
-│   ├── polinomio_recursivo.cpp
-│   ├── analise_polinomio.txt
-├── prompts_llm/
-│   └── prompts_utilizados.md
-├── slides/
-│   └── apresentacao.pdf
-└── README.md
-
 ## Como compilar e executar
 
 Exemplo:
