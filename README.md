@@ -1,4 +1,3 @@
-```
 # Trabalho de Análise de Projetos e Algoritmos
 
 Este repositório contém os códigos e análises de dois problemas clássicos:
@@ -76,4 +75,3 @@ Alguns ajustes foram feitos para garantir que eles funcionassem corretamente.
 ## Licença
 
 Uso educacional. Licença MIT.
-```
