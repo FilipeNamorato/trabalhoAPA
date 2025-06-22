@@ -25,8 +25,18 @@ Ambos foram resolvidos com:
 
 Exemplo:
 
+```bash
 g++ -o fibonacci_rec fibonacci/fibonacci_recursivo.cpp
 ./fibonacci_rec
+```
+```bash
+g++ -std=c++11 polinomio_recursivo.cpp -o polinomio
+./polinomio
+```
+Exemplo com múltiplos arquivos:
+```bash
+g++ -std=c++11 main.cpp polinomio.cpp -o polinomio
+```
 
 ## Complexidade esperada
 
@@ -34,8 +44,11 @@ Fibonacci:
 - Recursivo: O(2^n)
 - Iterativo: O(n)
 
-Polinômio:
-- Ambos: O(n), mas o iterativo é mais rápido na prática (Horner)
+Polinômio recursivo:
+Horner:      O(n) - n chamadas recursivas, cada uma O(1)
+Produto:     O(n) - n+1 chamadas recursivas, cada uma O(1)
+Potenciação: O(n²) - para cada termo i, calcula x^i em O(i)
+
 
 ## Sobre os códigos gerados pela IA
 
@@ -44,9 +57,7 @@ Alguns ajustes foram feitos para garantir que eles funcionassem corretamente.
 
 ## Conclusões
 
-- A versão iterativa é mais eficiente nos dois casos.
-- O uso de LLMs ajudou a ganhar tempo, mas sempre foi preciso revisar.
-- A comparação entre teoria e prática mostrou como a escolha do algoritmo afeta o desempenho.
+
 
 ## Autores
 
