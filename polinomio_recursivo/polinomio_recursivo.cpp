@@ -3,6 +3,8 @@
 #include <cmath>
 #include <limits>
 #include <chrono>
+#include <cstdlib>
+#include <ctime>
 using namespace std::chrono;
 using namespace std;
 
@@ -138,17 +140,26 @@ int polinomio_produto() {
     return polinomio_produto_rec(0, 1, 0);
 }
 
+void gerar_polinomio_aleatorio(int grau, int x) {
+    grau_global = grau;
+    x_global = x;
+    coeficientes_globais.resize(grau + 1);
 
-int main() {
-    cout << "=== ALGORITMOS RECURSIVOS - ANÁLISE DE COMPLEXIDADE ===" << endl;
-    
-    // Ler dados do polinômio
-    ler_polinomio();
-    
+    srand(time(0));  // Inicializa a semente do gerador de números aleatórios
+
+    for (int i = 0; i <= grau; i++) {
+        // Gera coeficientes aleatórios entre -10 e 10
+        coeficientes_globais[i] = (rand() % 21) - 10;
+    }
+
+    cout << "\nPolinômio de grau " << grau_global << " gerado automaticamente com coeficientes aleatórios e x = " << x_global << endl;
+}
+
+void executar_testes() {
     // Variáveis para armazenar resultados e tempos
     int resultado_horner, resultado_potenciacao, resultado_produto;
     double tempo_horner, tempo_potenciacao, tempo_produto;
-    
+
     // Teste 1: Método Horner
     cout << "\n--- TESTE MÉTODO HORNER ---" << endl;
     auto inicio = high_resolution_clock::now();
@@ -158,7 +169,7 @@ int main() {
     cout << "Resultado: p(" << x_global << ") = " << resultado_horner << endl;
     cout << "Complexidade: O(n) - n chamadas recursivas, cada uma O(1)" << endl;
     cout << "Tempo: " << tempo_horner << " milissegundos" << endl;
-    
+
     // Teste 2: Método Potenciação
     cout << "\n--- TESTE MÉTODO POTENCIAÇÃO ---" << endl;
     inicio = high_resolution_clock::now();
@@ -168,7 +179,7 @@ int main() {
     cout << "Resultado: p(" << x_global << ") = " << resultado_potenciacao << endl;
     cout << "Complexidade: O(n²) - para cada termo i, calcula x^i em O(i), somatório = O(n²)" << endl;
     cout << "Tempo: " << tempo_potenciacao << " milissegundos" << endl;
-    
+
     // Teste 3: Método Produto
     cout << "\n--- TESTE MÉTODO PRODUTO ---" << endl;
     inicio = high_resolution_clock::now();
@@ -178,7 +189,6 @@ int main() {
     cout << "Resultado: p(" << x_global << ") = " << resultado_produto << endl;
     cout << "Complexidade: O(n) - n+1 chamadas recursivas, cada uma O(1)" << endl;
     cout << "Tempo: " << tempo_produto << " milissegundos" << endl;
-    
 
     // Comparação final
     cout << "\n=== COMPARAÇÃO FINAL DOS MÉTODOS DE POLINÔMIO ===" << endl;
@@ -187,7 +197,7 @@ int main() {
     cout << "Horner\t\t" << resultado_horner << "\t\t" << tempo_horner << "\t\tO(n)" << endl;
     cout << "Potenciação\t" << resultado_potenciacao << "\t\t" << tempo_potenciacao << "\t\tO(n²)" << endl;
     cout << "Produto\t\t" << resultado_produto << "\t\t" << tempo_produto << "\t\tO(n)" << endl;
-    
+
     cout << "\nAnálise:" << endl;
     if (resultado_horner == resultado_potenciacao && resultado_horner == resultado_produto) {
         cout << "• Todos os métodos produziram o mesmo resultado: " << resultado_horner << endl;
@@ -197,15 +207,41 @@ int main() {
     }
     cout << "• Métodos mais eficientes (menor complexidade): Horner e Produto O(n)" << endl;
     cout << "• Método menos eficiente: Potenciação O(n²)" << endl;
-    
-    // Identificar o mais rápido
+
+    // Método mais rápido
     if (tempo_horner <= tempo_produto && tempo_horner <= tempo_potenciacao) {
-        cout << "• Método mais rápido neste teste: Horner (" << tempo_horner << " μs)" << endl;
+        cout << "• Método mais rápido neste teste: Horner (" << tempo_horner << " ms)" << endl;
     } else if (tempo_produto <= tempo_horner && tempo_produto <= tempo_potenciacao) {
-        cout << "• Método mais rápido neste teste: Produto (" << tempo_produto << " μs)" << endl;
+        cout << "• Método mais rápido neste teste: Produto (" << tempo_produto << " ms)" << endl;
     } else {
-        cout << "• Método mais rápido neste teste: Potenciação (" << tempo_potenciacao << " μs)" << endl;
+        cout << "• Método mais rápido neste teste: Potenciação (" << tempo_potenciacao << " ms)" << endl;
     }
-    
+}
+
+
+int main() {
+    cout << "=== ALGORITMOS RECURSIVOS - ANÁLISE DE COMPLEXIDADE ===" << endl;
+
+    int opcao;
+    cout << "\nEscolha a forma de gerar o polinômio:" << endl;
+    cout << "1 - Digitar manualmente" << endl;
+    cout << "2 - Gerar aleatório (exemplo: grau 10000, x=2)" << endl;
+    cout << "Opção: ";
+    cin >> opcao;
+
+    switch(opcao) {
+        case 1:
+            ler_polinomio();
+            break;
+        case 2:            
+            gerar_polinomio_aleatorio(10000, 2);
+            break;
+        default:
+            cout << "Opção inválida!" << endl;
+            return 1;
+    }
+
+    executar_testes();
+
     return 0;
 }
