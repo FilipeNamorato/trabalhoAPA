@@ -1,0 +1,49 @@
+=== COMPARAÇÃO LLM vs NOSSA IMPLEMENTAÇÃO ===
+
+Polinômio: 3x⁴ - 2x³ + 5x² + x - 7 (grau 4)
+Avaliado em x = 2 → Resultado correto: 47
+
+[RESULTADOS LLM]
+| Método       | Operações | Tempo (ns) | Complexidade |
+|--------------|-----------|------------|--------------|
+| Horner       | 8         | 102        | O(n)         |
+| Produto      | 12        | 118        | O(n)         |
+| Potenciação  | 15        | 385        | O(n²)        |
+
+[NOSSA IMPLEMENTAÇÃO]
+| Método       | Operações | Tempo (ms) | Passos       | Complexidade |
+|--------------|-----------|------------|--------------|--------------|
+| Horner       | 8         | 0.000248   | 5            | O(n)         |
+| Produto      | 11        | 0.000161   | 5            | O(n)         |
+| Potenciação  | 16        | 0.000271   | 17           | O(n²)        |
+
+[ANÁLISE COMPARATIVA]
+1. Horner:
+   - Igualdade no número de operações (8)
+   - Tempo 2.4× maior na nossa versão (248ns vs 102ns)
+   - Possível diferença na medição (ns vs ms) ou otimizações
+
+2. Produto:
+   - Nossa versão mais eficiente (11 vs 12 operações)
+   - Tempo 36% maior (161ns vs 118ns)
+   - Melhor contagem de passos (5 vs não especificado)
+
+3. Potenciação:
+   - Nossa versão com 1 operação a mais (16 vs 15)
+   - Contagem de passos detalhada (17 passos totais)
+   - Tempo 30% menor (271ns vs 385ns)
+
+[OBSERVAÇÕES]
+• Ambos confirmaram a hierarquia de eficiência:
+  Horner > Produto > Potenciação
+• Nossa implementação trouxe:
+  - Contagem detalhada de passos
+  - Precisão na contagem de operações
+  - Unificação de unidades (ms)
+• O LLM apresentou:
+  - Tempos absolutos menores
+  - Contagem ligeiramente diferente de operações
+  - Falta de detalhes sobre passos
+  
+[CONCLUSÃO]
+As implementações são consistentes teoricamente, com variações práticas.

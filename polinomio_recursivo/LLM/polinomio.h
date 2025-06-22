@@ -8,6 +8,9 @@ class PolinomioRecursivo {
 private:
     std::vector<int> coeficientes;
     int grau;
+    long tempoPotenciacao;  // Variáveis para armazenar tempos de execução
+    long tempoProduto;
+    long tempoHorner;
     
     // Funções auxiliares privadas
     int potencia(int x, int i);
