@@ -1,4 +1,3 @@
-```markdown
 # Trabalho de Análise de Projetos e Algoritmos
 
 Este repositório contém os códigos e análises de dois problemas clássicos:
