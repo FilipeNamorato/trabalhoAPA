@@ -57,7 +57,7 @@ int main() {
     auto duracao2 = duration_cast<microseconds>(fim2 - inicio2);
 
     cout << "Resultado Fibonacci1: " << resultado1 << " | Tempo: " << duracao1.count() << " microsegundos" << endl;
-    cout << "Resultado Fibonacci2: " << resultado2 << " | Tempo: " << duracao2.count() << " microsegundos" << endl;
+    cout << "Resultado Fibonacci2 (Generativa): " << resultado2 << " | Tempo: " << duracao2.count() << " microsegundos" << endl;
 
     return 0;
 }
