@@ -112,14 +112,14 @@ void gerar_polinomio_aleatorio(int grau, int x) {
 
 int main() {
     //ler_polinomio();
-    gerar_polinomio_aleatorio(10000,445);
+    gerar_polinomio_aleatorio(9999,44554);
     int resultado_horner, resultado_potenciacao, resultado_produto;
     double tempo_horner, tempo_potenciacao, tempo_produto;
 
     // Horner
     cout << "\n--- TESTE METODO HORNER ---" << endl;
     auto inicio = high_resolution_clock::now();
-    resultado_horner = metodoPotencia();
+    resultado_horner = metodoHorner();
     auto fim = high_resolution_clock::now();
     tempo_horner = duration_cast<nanoseconds>(fim - inicio).count() / 1000000.0;
     cout << "Resultado: p(" << x_global << ") = " << resultado_horner << endl;
